@@ -1,0 +1,66 @@
+{
+  "ventas": [
+    {
+      "fecha": "2026-01-03",
+      "categoria": "servicios",
+      "monto": 1200.0,
+      "descripcion": "Diseño landing"
+    },
+    {
+      "fecha": "2026-01-07",
+      "categoria": "consultoría",
+      "monto": 800.5,
+      "descripcion": "Asesoría técnica"
+    },
+    {
+      "fecha": "2026-01-12",
+      "categoria": "suscripciones",
+      "monto": 199.99,
+      "descripcion": "Plan premium"
+    },
+    {
+      "fecha": "2026-01-15",
+      "categoria": "curso",
+      "monto": 950.0,
+      "descripcion": "Curso online"
+    },
+    {
+      "fecha": "2026-01-16",
+      "categoria": "licencias",
+      "monto": 450.0,
+      "descripcion": "Licencia anual"
+    }
+  ],
+  "gastos": [
+    {
+      "fecha": "2026-01-02",
+      "categoria": "marketing",
+      "monto": 150.0,
+      "descripcion": "Anuncios redes"
+    },
+    {
+      "fecha": "2026-01-05",
+      "categoria": "infraestructura",
+      "monto": 220.0,
+      "descripcion": "Servidor VPS"
+    },
+    {
+      "fecha": "2026-01-10",
+      "categoria": "insumos",
+      "monto": 75.49,
+      "descripcion": "Papelería"
+    },
+    {
+      "fecha": "2026-01-13",
+      "categoria": "servicios",
+      "monto": 300.0,
+      "descripcion": "Freelancer QA"
+    },
+    {
+      "fecha": "2026-01-16",
+      "categoria": "suscripciones",
+      "monto": 49.9,
+      "descripcion": "Herramienta SaaS"
+    }
+  ]
+}
