@@ -6,5 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     descripcion: { type: DataTypes.TEXT },
     userId: { type: DataTypes.INTEGER }
   }, { tableName: 'gastos', paranoid: true });
+  
   return Gasto;
 };

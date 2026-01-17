@@ -5,11 +5,13 @@ const errorHandler = require('../middlewares/error');
 const { sequelize } = require('../db/models');
 
 const app = express();
+
 app.use(express.json());
 app.use(routes);
 app.use(errorHandler);
 
 const port = Number(process.env.PORT) || 3001;
+
 app.listen(port, async () => {
   try {
     await sequelize.authenticate();

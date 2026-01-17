@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   async up(q, S) {
     await q.createTable('gastos', {
