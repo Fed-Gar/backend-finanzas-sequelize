@@ -15,9 +15,9 @@ Opción A — Docker Compose
 
 Ejecutar desde la carpeta raíz con docker-compose.yml.
 
-docker compose up -d --build
+docker compose build --no-cache
+docker compose up -d
 docker compose logs -f finanzas
-
 
 El contenedor corre sequelize db:migrate y queda en dev.
 
