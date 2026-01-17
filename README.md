@@ -13,13 +13,13 @@ Requiere JWT emitido por el servicio de Auth. Comparte la misma DB.
 🚀 Ejecutar
 Opción A — Docker Compose
 
-Ejecutar desde la carpeta raíz con docker-compose.yml.
+Ejecutar desde la carpeta raíz del proyecto donde esta docker-compose.yml.
 
 docker compose build --no-cache
 docker compose up -d
 docker compose logs -f finanzas
 
-El contenedor corre sequelize db:migrate y queda en dev.
+Al arrancar, este contenedor ejecuta `sequelize db:migrate` automáticamente y queda en modo dev.
 
 El servicio escucha en http://localhost:3001.
 
@@ -37,11 +37,9 @@ JWT_SECRET=super_secreto_largo_y_unico
 NODE_ENV=development
 PORT=3001
 
-
 Con Docker Compose:
 
 DATABASE_URL=postgres://fin_user:fin_pass@postgres:5432/fin_db
-
 
 IMPORTANTE: JWT_SECRET debe coincidir con el de Auth.
 
@@ -63,6 +61,9 @@ src/
 migrations/
 ├─ YYYYMMDDHHMMSS-create-ventas.js
 └─ YYYYMMDDHHMMSS-create-gastos.js
+postman/
+├─ finanzas.postman_collection.json
+└─ local.postman_evironment.json
 
 📚 Scripts NPM
 {
@@ -89,9 +90,13 @@ Body ejemplo:
 GET /ventas (JWT)
 Filtros:
 
-?from=YYYY-MM-DD&to=YYYY-MM-DD
+?from=YYYY-MM-DD&to=YYYY-MM-DD (rango libre)
 
 ?periodo=dia|semana|mes|anio (compara con la fecha actual)
+
+?periodo=dia|semana|mes|anio&fecha=YYYY-MM-DD
+
+?periodo=MM&anio=YYYY (mes explicito)
 
 PUT /ventas/:id (JWT)
 
@@ -165,5 +170,3 @@ Variables sugeridas:
 401 Invalid token → JWT_SECRET distinto al de Auth.
 
 Migración fallida → revisar DATABASE_URL y correr npm run db:migrate.
-
-Windows + hot reload → usar CHOKIDAR_USEPOLLING=true en Docker (ya contemplado).
