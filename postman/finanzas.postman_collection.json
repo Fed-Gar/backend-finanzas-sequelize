@@ -1,0 +1,373 @@
+{
+  "info": {
+    "_postman_id": "finanzas-collection",
+    "name": "Finanzas (Sequelize)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_exported_at": "2026-01-17T02:34:47.220289Z"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrlFinanzas}}/health",
+          "host": [
+            "{{baseUrlFinanzas}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Ventas",
+      "item": [
+        {
+          "name": "Crear venta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/ventas",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "ventas"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-01-15\",\n  \"categoria\": \"servicios\",\n  \"monto\": 1500.5,\n  \"descripcion\": \"venta X\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Listar ventas (periodo=mes)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/ventas?periodo=mes",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "ventas"
+              ],
+              "query": [
+                {
+                  "key": "periodo",
+                  "value": "mes"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar ventas (rango from/to)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/ventas?from=2026-01-01&to=2026-01-31",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "ventas"
+              ],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "2026-01-01"
+                },
+                {
+                  "key": "to",
+                  "value": "2026-01-31"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar venta (:id)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/ventas/1",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "ventas",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"venta X actualizada\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar venta (soft) (:id)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/ventas/1",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "ventas",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gastos",
+      "item": [
+        {
+          "name": "Crear gasto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/gastos",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "gastos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fecha\": \"2026-01-15\",\n  \"categoria\": \"insumos\",\n  \"monto\": 300.0,\n  \"descripcion\": \"gasto Y\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Listar gastos (periodo=mes)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/gastos?periodo=mes",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "gastos"
+              ],
+              "query": [
+                {
+                  "key": "periodo",
+                  "value": "mes"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar gasto (:id)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/gastos/1",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "gastos",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"gasto Y actualizado\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar gasto (soft) (:id)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/gastos/1",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "gastos",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Line chart (unit=day)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/dashboard/line-chart?unit=day",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "dashboard",
+                "line-chart"
+              ],
+              "query": [
+                {
+                  "key": "unit",
+                  "value": "day"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Line chart (unit=month)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrlFinanzas}}/dashboard/line-chart?unit=month",
+              "host": [
+                "{{baseUrlFinanzas}}"
+              ],
+              "path": [
+                "dashboard",
+                "line-chart"
+              ],
+              "query": [
+                {
+                  "key": "unit",
+                  "value": "month"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Import JSON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrlFinanzas}}/import-json",
+          "host": [
+            "{{baseUrlFinanzas}}"
+          ],
+          "path": [
+            "import-json"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ventas\": [\n    {\n      \"fecha\": \"2026-01-10\",\n      \"categoria\": \"curso\",\n      \"monto\": 900,\n      \"descripcion\": \"venta curso\"\n    }\n  ],\n  \"gastos\": [\n    {\n      \"fecha\": \"2026-01-11\",\n      \"categoria\": \"marketing\",\n      \"monto\": 200,\n      \"descripcion\": \"ads\"\n    }\n  ]\n}"
+        }
+      }
+    }
+  ]
+}
